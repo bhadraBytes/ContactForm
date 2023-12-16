@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial</title>
+    <link rel="stylesheet" href="/navbarTrial.css">
+    <script src="https://kit.fontawesome.com/7f793b200d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="header">
+        <nav class="navBar">
+            <div class="main-logo">
+                <a href="#"><img src="/logo.png" alt=""></a>
+            </div>
+            <div class="sch-box">
+                <button class='close'><i class="fas fa-times"></i></button>
+                <input type="text" name="q" id="q" autocomplete=off>
+                <button class='sch'><i class='fas fa-search'></i></button>
+            </div>            <ul id="navlist">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- <li><a href="#">My Profile</a></li> -->
+                <div class="dropdown">
+                    <button class="dropbtn">Account
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fa fa-user"></i>My Profile</a>
+                        <a href="#"><i class="fa fa-cart-flatbed-suitcase"></i>Orders</a>
+                        <a href="#"><i class="fa fa-heart"></i>WishList</a>
+                        <a href="#"><i class="fa fa-ticket"></i>Coupons</a>
+                        <a href="#"><i class="fa fa-bell"></i>Notifications</a>
+                        <a href="#"><i class="fa fa-right-from-bracket"></i>Logout</a>
+                    </div>
+                </div>
+                <li id="lg-cart"><a href="/cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                <a href="#" id="close"><i class="fa-sharp fa-solid fa-xmark"></i></a>
+            </ul>
+            <div id="mobile">
+                <a href="/cart.html"><i class="fa fa-shopping-cart"></i></a>
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
+        </nav>
+    </section>
+    <script>
+        const closeBtn = document.querySelector(".close");
+        const searchBtn = document.querySelector(".sch");
+        const inputBox = document.querySelector("#q");
+        const formBox = document.querySelector(".sch-box");
+        const logo = document.querySelector(".main-logo");
+        const cart = document.querySelector("#lg-cart");
+        const mobile = document.querySelector("#moblie");
+
+        searchBtn.addEventListener("click", function (e) {
+            logo.style.display = 'none';
+            // cart.style.display = 'none';
+            // mobile.style.display = 'none';
+                let input = inputBox.value;
+                if (input == "") {
+                    e.preventDefault();
+                }
+                else {
+                    inputBox.submit();
+                }
+                inputBox.style.display = "flex";
+                closeBtn.style.display = "flex";
+                formBox.classList.add("full");
+            });
+
+        closeBtn.addEventListener("click", function () {
+            formBox.classList.remove("full");
+            inputBox.style.display = "none";
+            closeBtn.style.display = "none";
+            logo.style.display = 'initial';
+        });
+
+
+
+    </script>
+</body>
+
+</html>
